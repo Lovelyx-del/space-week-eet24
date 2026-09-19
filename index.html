@@ -248,6 +248,22 @@
     text-transform:uppercase;
   }
   .nav-links a.activo{background:var(--celeste-anillo);color:var(--noche)}
+
+  /* CUERPO en blanco (calcado de eet24.edu.ar), sin tocar navbar ni footer */
+  .site-main{
+    background:#FFFFFF;
+    color:#12131A;
+    --texto-tenue:#5B6B85;
+    --card-bg:#F3F6FA;
+    --blanco:#12131A;
+    --borde:rgba(11,24,48,0.14);
+    --dorado:#B8790A;
+    --celeste-claro:#0F4078;
+  }
+  .site-main .titulo-evento{
+    background:linear-gradient(180deg, #0B1830, #1F3F73);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
 </style>
 </head>
 <body>
@@ -267,6 +283,7 @@
   </div>
 </div>
 
+<main class="site-main">
 <div class="wrap">
   <div class="hero">
     <h1 class="titulo-evento">SPACE WEEK</h1>
@@ -364,6 +381,7 @@
     </div>
   </section>
 </div>
+</main>
 
 <footer class="site-footer">
   <div class="wrap footer-main">

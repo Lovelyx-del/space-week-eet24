@@ -189,13 +189,9 @@
   }
   @media (max-width:780px){.footer-main{grid-template-columns:1fr 1fr}}
   @media (max-width:480px){.footer-main{grid-template-columns:1fr}}
-  .footer-brand .footer-logo{width:92px;height:92px;display:block;margin-bottom:16px;opacity:0.95}
-  .footer-brand address{
-    font-style:normal;color:var(--texto-tenue);font-size:14px;line-height:1.6;margin:0 0 16px 0;
-  }
-  .footer-brand address strong{color:var(--blanco);display:block;margin-bottom:2px}
-  .footer-brand .footer-contacto{color:var(--texto-tenue);font-size:14px;line-height:1.6;margin:0}
-  .footer-brand .footer-contacto a{color:var(--celeste-claro);font-weight:600}
+  .footer-brand{display:flex;align-items:center;justify-content:center}
+  .footer-brand .footer-logo{width:130px;height:130px;display:block;opacity:0.95}
+  @media (max-width:780px){.footer-brand{justify-content:flex-start}}
   .footer-col{display:flex;flex-direction:column;gap:11px}
   .footer-col h5{
     font-family:'Chakra Petch',sans-serif;
@@ -373,14 +369,6 @@
   <div class="wrap footer-main">
     <div class="footer-brand">
       <img src="icon_stem_blanco.png" alt="STEM Hub - EET N24" class="footer-logo">
-      <address>
-        <strong>E.E.T. N°24 "Simón de Iriondo"</strong>
-        Resistencia, Chaco — Argentina
-      </address>
-      <p class="footer-contacto">
-        ¿Querés participar del evento?<br>
-        <a href="#">Escribinos por Instagram</a>
-      </p>
     </div>
     <div class="footer-col">
       <h5>El evento</h5>

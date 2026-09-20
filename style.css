@@ -222,17 +222,10 @@ section{padding-block:44px}
   -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
-  opacity:0;
-  transition:opacity .25s;
+  opacity:1;
   z-index:-1;
   animation:girar-borde 3.5s linear infinite;
-  animation-play-state:paused;
   pointer-events:none;
-}
-.card-invitado:hover::before,
-.card-invitado:focus-within::before{
-  opacity:1;
-  animation-play-state:running;
 }
 .card-invitado .avatar{
   width:56px;height:56px;border-radius:50%;

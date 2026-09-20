@@ -32,13 +32,31 @@
 </div>
 
 <main class="site-main">
-<div class="wrap">
-  <div class="hero">
-    <h1 class="titulo-evento">SPACE WEEK</h1>
-    <div class="fecha-badge">4 — 9 OCTUBRE 2026</div>
-    <p class="bajada">Charlas y mini entrevistas para despertar curiosidad sobre gente que hace ciencia y tecnología de punta en el país, en el área espacial.</p>
+<div class="hero-carousel" id="heroCarousel">
+  <div class="hero-slide activo" style="background-image:url('img/hero-newton.jpg')">
+    <div class="hero-overlay"></div>
+    <div class="hero-contenido">
+      <h1 class="titulo-evento">SPACE WEEK</h1>
+      <div class="fecha-badge">4 — 9 OCTUBRE 2026</div>
+      <p class="bajada">Charlas y mini entrevistas para despertar curiosidad sobre gente que hace ciencia y tecnología de punta en el país, en el área espacial.</p>
+    </div>
   </div>
+  <div class="hero-slide" style="background-image:url('img/hero-simon.jpg')">
+    <div class="hero-overlay"></div>
+    <div class="hero-contenido">
+      <h1 class="titulo-evento">E.E.T. N°24 "SIMÓN DE IRIONDO"</h1>
+      <p class="bajada">La escuela técnica de Resistencia, Chaco que organiza la Space Week 2026.</p>
+    </div>
+  </div>
+  <button class="hero-flecha hero-flecha-izq" id="heroPrev" aria-label="Anterior">‹</button>
+  <button class="hero-flecha hero-flecha-der" id="heroNext" aria-label="Siguiente">›</button>
+  <div class="hero-puntos" id="heroPuntos">
+    <button class="punto activo" data-slide="0" aria-label="Ir a la slide 1"></button>
+    <button class="punto" data-slide="1" aria-label="Ir a la slide 2"></button>
+  </div>
+</div>
 
+<div class="wrap">
   <section id="cronograma">
     <h2 class="section-title">Cronograma</h2>
     <p class="section-sub">Segmentos de 45 minutos, mañana y tarde, para que ambos turnos puedan participar de alguna charla. Se dictan por aula según inscripción — anotate para asegurar tu lugar.</p>

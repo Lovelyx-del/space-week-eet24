@@ -41,40 +41,109 @@ a{color:inherit}
   margin-top:18px;
 }
 
-/* HERO */
-.hero{
-  padding-block:56px 40px;
+/* HERO CARRUSEL */
+.hero-carousel{
+  position:relative;
+  overflow:hidden;
+  height:clamp(360px,46vw,520px);
+}
+.hero-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity .8s ease;
+  display:flex;
+  align-items:center;
+}
+.hero-slide.activo{opacity:1;z-index:1}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(11,24,48,.4), rgba(11,24,48,.82));
+}
+.hero-contenido{
+  position:relative;
+  z-index:2;
+  max-width:1040px;
+  margin-inline:auto;
+  padding-inline:16px;
+  width:100%;
+  text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
-  text-align:center;
-  gap:18px;
+  gap:16px;
 }
-.titulo-evento{
+.site-main .hero-contenido .titulo-evento{
   font-size:clamp(34px,7vw,64px);
   font-weight:700;
-  margin:6px 0 0 0;
-  background:linear-gradient(180deg, var(--blanco), var(--celeste-claro));
+  margin:0;
+  background:linear-gradient(180deg, #FFFFFF, #C9E8FB);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
-.fecha-badge{
+.hero-contenido .fecha-badge{
   font-family:'Chakra Petch',sans-serif;
   font-size:15px;
   letter-spacing:0.08em;
-  color:var(--noche);
-  background:var(--celeste-anillo);
+  color:#0B1830;
+  background:#8FCBF2;
   padding:8px 18px;
   border-radius:999px;
   font-weight:600;
 }
-.hero p.bajada{
+.hero-contenido .bajada{
   max-width:560px;
-  color:var(--texto-tenue);
+  color:#E7EEF8;
   font-size:16px;
   margin:0;
 }
+.hero-flecha{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  background:rgba(11,24,48,.55);
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-flecha-izq{left:14px}
+.hero-flecha-der{right:14px}
+@media (max-width:640px){
+  .hero-flecha{width:32px;height:32px;font-size:18px}
+}
+.hero-puntos{
+  position:absolute;
+  bottom:16px;
+  left:0;
+  right:0;
+  z-index:3;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+.hero-puntos .punto{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:rgba(255,255,255,.4);
+  border:none;
+  cursor:pointer;
+  padding:0;
+}
+.hero-puntos .punto.activo{background:#fff}
 
 section{padding-block:44px}
 .section-title{

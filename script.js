@@ -35,6 +35,38 @@
   filtroDia.addEventListener('change', aplicarFiltros);
 })();
 
+// Carrusel del hero
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+  var puntos = Array.prototype.slice.call(document.querySelectorAll('.hero-puntos .punto'));
+  var btnPrev = document.getElementById('heroPrev');
+  var btnNext = document.getElementById('heroNext');
+  if (!slides.length) return;
+
+  var actual = 0;
+  var timer;
+
+  function mostrar(i){
+    actual = (i + slides.length) % slides.length;
+    slides.forEach(function(s, idx){ s.classList.toggle('activo', idx === actual); });
+    puntos.forEach(function(p, idx){ p.classList.toggle('activo', idx === actual); });
+  }
+  function siguiente(){ mostrar(actual + 1); }
+  function anterior(){ mostrar(actual - 1); }
+  function reiniciarAutoplay(){
+    clearInterval(timer);
+    timer = setInterval(siguiente, 6000);
+  }
+
+  if (btnNext) btnNext.addEventListener('click', function(){ siguiente(); reiniciarAutoplay(); });
+  if (btnPrev) btnPrev.addEventListener('click', function(){ anterior(); reiniciarAutoplay(); });
+  puntos.forEach(function(p, idx){
+    p.addEventListener('click', function(){ mostrar(idx); reiniciarAutoplay(); });
+  });
+
+  reiniciarAutoplay();
+})();
+
 // Cronograma: tabs por dia
 (function(){
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-dia'));

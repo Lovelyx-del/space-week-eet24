@@ -35,6 +35,34 @@
   filtroDia.addEventListener('change', aplicarFiltros);
 })();
 
+// Cronograma: tabs por dia + acordeon de turnos
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-dia'));
+  var paneles = Array.prototype.slice.call(document.querySelectorAll('.cronograma-panel'));
+  if (!tabs.length || !paneles.length) return;
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var dia = tab.getAttribute('data-dia-tab');
+      tabs.forEach(function(t){ t.classList.toggle('activo', t === tab); });
+      paneles.forEach(function(p){
+        p.classList.toggle('oculto', p.getAttribute('data-dia-panel') !== dia);
+      });
+    });
+  });
+
+  var togglesTurno = Array.prototype.slice.call(document.querySelectorAll('.turno-toggle'));
+  togglesTurno.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var contenido = btn.nextElementSibling;
+      if (!contenido) return;
+      var estabaAbierto = !contenido.classList.contains('oculto');
+      contenido.classList.toggle('oculto', estabaAbierto);
+      btn.classList.toggle('activo', !estabaAbierto);
+    });
+  });
+})();
+
 // Menu hamburguesa (mobile)
 (function(){
   var toggle = document.getElementById('navToggle');

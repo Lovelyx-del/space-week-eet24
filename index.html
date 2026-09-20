@@ -47,20 +47,25 @@
     <h2 class="section-title">Cronograma</h2>
     <p class="section-sub">Segmentos de 45 minutos, mañana y tarde, para que ambos turnos puedan participar de alguna charla. Se dictan por aula según inscripción — anotate para asegurar tu lugar.</p>
 
-    <div class="dia">
+    <div class="cronograma-tabs" id="cronogramaTabs">
+      <button class="tab-dia activo" data-dia-tab="1">Día 1</button>
+      <button class="tab-dia" data-dia-tab="2">Día 2</button>
+    </div>
+
+    <div class="cronograma-panel" data-dia-panel="1">
       <div class="dia-header">
         <h3>Día 1 — Logros nacionales y mundiales</h3>
         <span>EJEMPLO — a confirmar</span>
       </div>
-      <div class="turnos">
-        <div class="turno">
-          <h4>Turno mañana</h4>
+      <div class="turno-acordeon">
+        <button class="turno-toggle activo" data-turno-toggle>Turno mañana <span class="chevron">▾</span></button>
+        <div class="turno-contenido">
           <div class="segmento"><span class="hora">08:00</span><span class="tema">Apertura + proyectos en curso (Tronador, SABIA-Mar, USAT-1)</span><span class="tag">Santiago</span></div>
           <div class="segmento"><span class="hora">08:45</span><span class="tema">Mini entrevista — divulgación científica</span><span class="tag">a confirmar</span></div>
           <div class="segmento"><span class="hora">09:30</span><span class="tema">Mini entrevista — sector aeroespacial</span><span class="tag">a confirmar</span></div>
         </div>
-        <div class="turno">
-          <h4>Turno tarde</h4>
+        <button class="turno-toggle" data-turno-toggle>Turno tarde <span class="chevron">▾</span></button>
+        <div class="turno-contenido oculto">
           <div class="segmento"><span class="hora">14:00</span><span class="tema">Repetición: apertura + proyectos en curso</span><span class="tag">Santiago</span></div>
           <div class="segmento"><span class="hora">14:45</span><span class="tema">Mini entrevista (video o en vivo)</span><span class="tag">a confirmar</span></div>
           <div class="segmento"><span class="hora">15:30</span><span class="tema">Espacio abierto — expone un estudiante</span><span class="tag">opcional</span></div>
@@ -68,20 +73,20 @@
       </div>
     </div>
 
-    <div class="dia">
+    <div class="cronograma-panel oculto" data-dia-panel="2">
       <div class="dia-header">
         <h3>Día 2 — Conceptos de física</h3>
         <span>EJEMPLO — a confirmar</span>
       </div>
-      <div class="turnos">
-        <div class="turno">
-          <h4>Turno mañana</h4>
+      <div class="turno-acordeon">
+        <button class="turno-toggle activo" data-turno-toggle>Turno mañana <span class="chevron">▾</span></button>
+        <div class="turno-contenido">
           <div class="segmento"><span class="hora">08:00</span><span class="tema">Física para entender el espacio</span><span class="tag">Santiago + profesor</span></div>
           <div class="segmento"><span class="hora">08:45</span><span class="tema">Mini entrevista — investigación académica</span><span class="tag">a confirmar</span></div>
           <div class="segmento"><span class="hora">09:30</span><span class="tema">Mini entrevista — equipo estudiantil (satélites/CanSat)</span><span class="tag">a confirmar</span></div>
         </div>
-        <div class="turno">
-          <h4>Turno tarde</h4>
+        <button class="turno-toggle" data-turno-toggle>Turno tarde <span class="chevron">▾</span></button>
+        <div class="turno-contenido oculto">
           <div class="segmento"><span class="hora">14:00</span><span class="tema">Repetición: física para entender el espacio</span><span class="tag">Santiago + profesor</span></div>
           <div class="segmento"><span class="hora">14:45</span><span class="tema">Mini entrevista (video o en vivo)</span><span class="tag">a confirmar</span></div>
           <div class="segmento"><span class="hora">15:30</span><span class="tema">Espacio abierto — expone un estudiante</span><span class="tag">opcional</span></div>

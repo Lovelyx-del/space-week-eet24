@@ -12,6 +12,7 @@
   --card-bg:#101F3B;
 }
 *{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%}
 body{
   background:var(--noche);
   color:var(--blanco);
@@ -281,7 +282,14 @@ section{padding-block:44px}
   line-height:1.2;
 }
 .nav-brand .txt small{display:block;font-family:'Public Sans',sans-serif;font-weight:400;font-size:13px;color:var(--texto-tenue);margin-top:2px}
-.nav-links{display:flex;align-items:stretch;font-size:14.5px;align-self:stretch}
+.nav-links{
+  display:flex;align-items:stretch;font-size:14.5px;align-self:stretch;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none}
 .nav-links a{
   text-decoration:none;color:var(--texto-tenue);
   display:flex;align-items:center;
@@ -291,8 +299,18 @@ section{padding-block:44px}
   font-weight:600;
   letter-spacing:0.04em;
   text-transform:uppercase;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 .nav-links a.activo{background:var(--celeste-anillo);color:var(--noche)}
+
+@media (max-width:640px){
+  .nav-links{font-size:13px}
+  .nav-links a{padding-inline:16px}
+  .nav-brand{gap:10px;padding-block:14px}
+  .nav-brand img{height:52px}
+  .nav-brand .txt{font-size:18px}
+}
 
 /* CUERPO en blanco (calcado de eet24.edu.ar), sin tocar navbar ni footer */
 .site-main{

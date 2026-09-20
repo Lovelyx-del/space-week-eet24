@@ -164,11 +164,43 @@ section{padding-block:44px}
 .sin-resultados{color:var(--texto-tenue);font-size:14.5px;padding:20px 0}
 
 .grid-invitados{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+
+@property --angulo-borde{
+  syntax:'<angle>';
+  initial-value:0deg;
+  inherits:false;
+}
+@keyframes girar-borde{ to{ --angulo-borde:360deg; } }
+
 .card-invitado{
+  position:relative;
   border:1px solid var(--borde);
   background:var(--card-bg);
   border-radius:16px;
   padding:18px;
+  isolation:isolate;
+}
+.card-invitado::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:18px;
+  padding:2px;
+  background:conic-gradient(from var(--angulo-borde), transparent 0%, #8FCBF2 12%, transparent 28%, #6FE3CC 50%, transparent 66%, #8FCBF2 82%, transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:0;
+  transition:opacity .25s;
+  z-index:-1;
+  animation:girar-borde 3.5s linear infinite;
+  animation-play-state:paused;
+  pointer-events:none;
+}
+.card-invitado:hover::before,
+.card-invitado:focus-within::before{
+  opacity:1;
+  animation-play-state:running;
 }
 .card-invitado .avatar{
   width:56px;height:56px;border-radius:50%;

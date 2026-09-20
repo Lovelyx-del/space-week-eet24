@@ -21,7 +21,7 @@
     <div class="nav-links">
       <a href="#" class="activo">Home</a>
       <a href="#cronograma">Cronograma</a>
-      <a href="#invitados">Invitados</a>
+      <a href="#invitados">Speakers</a>
       <a href="#">Inscribite</a>
     </div>
   </div>
@@ -35,7 +35,7 @@
     <p class="bajada">Charlas y mini entrevistas para despertar curiosidad sobre gente que hace cosas por el país en ciencia y tecnología espacial — temas de los que casi no se habla en el día a día.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#cronograma">Ver cronograma</a>
-      <a class="btn btn-secondary" href="#invitados">Invitados</a>
+      <a class="btn btn-secondary" href="#invitados">Speakers</a>
     </div>
   </div>
 
@@ -87,34 +87,60 @@
   </section>
 
   <section id="invitados">
-    <h2 class="section-title">Invitados propuestos</h2>
-    <p class="section-sub">Todavía en proceso de confirmación — esto es solo para mostrar cómo se vería la sección con nombres reales.</p>
-    <div class="grid-invitados">
-      <div class="card-invitado">
+    <h2 class="section-title">Speakers / Entrevistados</h2>
+    <p class="section-sub">Todavía en proceso de confirmación — esto es solo para mostrar cómo se vería la sección con nombres reales. Los días asignados también son de ejemplo.</p>
+
+    <div class="speakers-filtros">
+      <input type="text" id="buscador-speaker" placeholder="Buscar por nombre o área">
+      <select id="filtro-rol">
+        <option value="">Área — todas</option>
+        <option value="Astrofísica">Astrofísica</option>
+        <option value="Candidata a astronauta">Candidata a astronauta</option>
+        <option value="Estudiante — CanSat">Estudiante — CanSat</option>
+        <option value="CONICET / divulgación">CONICET / divulgación</option>
+      </select>
+      <select id="filtro-dia">
+        <option value="">Día — todos</option>
+        <option value="4">Domingo 4</option>
+        <option value="5">Lunes 5</option>
+        <option value="6">Martes 6</option>
+        <option value="7">Miércoles 7</option>
+        <option value="8">Jueves 8</option>
+        <option value="9">Viernes 9</option>
+      </select>
+    </div>
+
+    <div class="grid-invitados" id="grid-speakers">
+      <div class="card-invitado" data-nombre="amina helmi astrofísica" data-rol="Astrofísica" data-dia="6">
+        <div class="avatar" style="background:#2C5A8C">AH</div>
         <div class="rol">Astrofísica</div>
         <h4>Amina Helmi</h4>
         <p>Premio Kavli de Astrofísica 2026, Universidad de Groningen.</p>
         <span class="estado">Contactada</span>
       </div>
-      <div class="card-invitado">
+      <div class="card-invitado" data-nombre="noel de castro candidata a astronauta" data-rol="Candidata a astronauta" data-dia="8">
+        <div class="avatar" style="background:#B8790A">NC</div>
         <div class="rol">Candidata a astronauta</div>
         <h4>Noel de Castro</h4>
         <p>Misión Axiom Space / SpaceX Dragon, prevista para 2027.</p>
         <span class="estado">Contactada</span>
       </div>
-      <div class="card-invitado">
+      <div class="card-invitado" data-nombre="equipo seds itba estudiante cansat" data-rol="Estudiante — CanSat" data-dia="7">
+        <div class="avatar" style="background:#3E7A4A">SI</div>
         <div class="rol">Estudiante — CanSat</div>
         <h4>Equipo SEDS ITBA</h4>
         <p>1° puesto mundial en la competencia CanSat de la NASA.</p>
         <span class="estado">Contactada</span>
       </div>
-      <div class="card-invitado">
+      <div class="card-invitado" data-nombre="beatriz garcía conicet divulgación" data-rol="CONICET / divulgación" data-dia="6">
+        <div class="avatar" style="background:#7A3E6E">BG</div>
         <div class="rol">CONICET / divulgación</div>
         <h4>Dra. Beatriz García</h4>
         <p>ITeDA — colaboración internacional Pierre Auger.</p>
         <span class="estado">Contactada</span>
       </div>
     </div>
+    <p id="sin-resultados" class="sin-resultados" style="display:none">No encontramos speakers con esos filtros.</p>
   </section>
 
   <section>
@@ -136,7 +162,7 @@
       <h5>El evento</h5>
       <a href="#">Home</a>
       <a href="#cronograma">Cronograma</a>
-      <a href="#invitados">Invitados</a>
+      <a href="#invitados">Speakers</a>
     </div>
     <div class="footer-col">
       <h5>Participar</h5>
@@ -161,5 +187,41 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var buscador = document.getElementById('buscador-speaker');
+  var filtroRol = document.getElementById('filtro-rol');
+  var filtroDia = document.getElementById('filtro-dia');
+  var sinResultados = document.getElementById('sin-resultados');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid-speakers .card-invitado'));
+
+  function aplicarFiltros(){
+    var q = buscador.value.trim().toLowerCase();
+    var rol = filtroRol.value;
+    var dia = filtroDia.value;
+    var visibles = 0;
+
+    cards.forEach(function(card){
+      var nombre = card.getAttribute('data-nombre') || '';
+      var rolCard = card.getAttribute('data-rol') || '';
+      var dias = (card.getAttribute('data-dia') || '').split(',');
+
+      var matchQ = !q || nombre.indexOf(q) !== -1;
+      var matchRol = !rol || rolCard === rol;
+      var matchDia = !dia || dias.indexOf(dia) !== -1;
+
+      var visible = matchQ && matchRol && matchDia;
+      card.style.display = visible ? '' : 'none';
+      if (visible) visibles++;
+    });
+
+    sinResultados.style.display = visibles === 0 ? 'block' : 'none';
+  }
+
+  buscador.addEventListener('input', aplicarFiltros);
+  filtroRol.addEventListener('change', aplicarFiltros);
+  filtroDia.addEventListener('change', aplicarFiltros);
+})();
+</script>
 </body>
 </html>

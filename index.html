@@ -18,7 +18,11 @@
       <img src="img/logo-stem.png" alt="Logo EET N24 Space Week">
       <div class="txt">Simón de Iriondo<small>Space Week 2026</small></div>
     </div>
-    <div class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <button class="nav-close" id="navClose" aria-label="Cerrar menú">✕</button>
       <a href="#" class="activo">Home</a>
       <a href="#cronograma">Cronograma</a>
       <a href="#invitados">Speakers</a>
@@ -187,41 +191,6 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  var buscador = document.getElementById('buscador-speaker');
-  var filtroRol = document.getElementById('filtro-rol');
-  var filtroDia = document.getElementById('filtro-dia');
-  var sinResultados = document.getElementById('sin-resultados');
-  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid-speakers .card-invitado'));
-
-  function aplicarFiltros(){
-    var q = buscador.value.trim().toLowerCase();
-    var rol = filtroRol.value;
-    var dia = filtroDia.value;
-    var visibles = 0;
-
-    cards.forEach(function(card){
-      var nombre = card.getAttribute('data-nombre') || '';
-      var rolCard = card.getAttribute('data-rol') || '';
-      var dias = (card.getAttribute('data-dia') || '').split(',');
-
-      var matchQ = !q || nombre.indexOf(q) !== -1;
-      var matchRol = !rol || rolCard === rol;
-      var matchDia = !dia || dias.indexOf(dia) !== -1;
-
-      var visible = matchQ && matchRol && matchDia;
-      card.style.display = visible ? '' : 'none';
-      if (visible) visibles++;
-    });
-
-    sinResultados.style.display = visibles === 0 ? 'block' : 'none';
-  }
-
-  buscador.addEventListener('input', aplicarFiltros);
-  filtroRol.addEventListener('change', aplicarFiltros);
-  filtroDia.addEventListener('change', aplicarFiltros);
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>

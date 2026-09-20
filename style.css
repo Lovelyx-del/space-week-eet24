@@ -353,7 +353,7 @@ section{padding-block:44px}
   .footer-main>.footer-col:nth-child(3){grid-column:2;grid-row:2}
   .footer-main>.footer-col:nth-child(4){grid-column:1;grid-row:3}
   .footer-bottom-inner{
-    grid-column:2;grid-row:3;
+    grid-column:1;grid-row:4;
     margin:0;padding:0;background:none;border:none;
     flex-direction:column;align-items:center;justify-content:flex-start;
     gap:12px;text-align:center;
@@ -368,7 +368,6 @@ section{padding-block:44px}
 }
 .footer-social a:hover{background:var(--celeste-anillo);color:var(--noche)}
 .footer-social svg{width:15px;height:15px;fill:currentColor}
-.footer-bottom-inner .footer-inicio{color:var(--celeste-claro);text-decoration:none;font-family:'Chakra Petch',sans-serif;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;font-size:12.5px}
 
 /* HEADER estilo sitio oficial (calcado de eet24.edu.ar) */
 .navbar{

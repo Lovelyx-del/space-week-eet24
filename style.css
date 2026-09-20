@@ -136,28 +136,18 @@ section{padding-block:44px}
 .cronograma-panel.oculto{display:none}
 
 .turno-acordeon{display:flex;flex-direction:column}
-.turno-toggle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  width:100%;
-  background:transparent;
-  border:none;
+.turno-titulo{
+  margin:0;
+  padding:14px 0 10px 0;
   border-top:1px solid var(--borde);
-  padding:14px 0;
   font-family:'Chakra Petch',sans-serif;
   font-size:12px;
   text-transform:uppercase;
   letter-spacing:0.1em;
   color:var(--texto-tenue);
   font-weight:600;
-  cursor:pointer;
-  text-align:left;
 }
-.turno-acordeon .turno-toggle:first-child{border-top:none}
-.turno-toggle .chevron{transition:transform 0.2s ease;color:var(--celeste-claro)}
-.turno-toggle.activo .chevron{transform:rotate(180deg)}
-.turno-contenido.oculto{display:none}
+.turno-acordeon .turno-titulo:first-child{border-top:none}
 
 .segmento{
   display:flex;

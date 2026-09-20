@@ -35,7 +35,7 @@
   filtroDia.addEventListener('change', aplicarFiltros);
 })();
 
-// Cronograma: tabs por dia + acordeon de turnos
+// Cronograma: tabs por dia
 (function(){
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-dia'));
   var paneles = Array.prototype.slice.call(document.querySelectorAll('.cronograma-panel'));
@@ -48,17 +48,6 @@
       paneles.forEach(function(p){
         p.classList.toggle('oculto', p.getAttribute('data-dia-panel') !== dia);
       });
-    });
-  });
-
-  var togglesTurno = Array.prototype.slice.call(document.querySelectorAll('.turno-toggle'));
-  togglesTurno.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var contenido = btn.nextElementSibling;
-      if (!contenido) return;
-      var estabaAbierto = !contenido.classList.contains('oculto');
-      contenido.classList.toggle('oculto', estabaAbierto);
-      btn.classList.toggle('activo', !estabaAbierto);
     });
   });
 })();
